@@ -2,11 +2,11 @@
 
 #define SIG_PIN 19
 
-#define REF_PWM_PIN 9
-#define CON_PWM_PIN 10
+#define REF_PWM_PIN 6
+#define CON_PWM_PIN 5
 
-#define REF_SIG_PIN 2
-#define CON_SIG_PIN 3
+#define REF_SIG_PIN 3
+#define CON_SIG_PIN 2
 
 #define REF_FOUND_DELAY 200
 #define REF_AJUST_DELAY 10
@@ -26,7 +26,7 @@ unsigned long delayEnd = 0;
 unsigned long conLastChange = 0;
 unsigned long refLastChange = 0;
 
-bool error = false;
+bool error = true;
 
 /**
  * Interrupt for REF_SIG_PIN

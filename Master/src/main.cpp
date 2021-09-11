@@ -15,12 +15,13 @@ void setup() {
 }
 
 void loop() {
-    if (refLastChange + CON_ERROR_DELAY < millis() && !error) {
+    if (!digitalRead(SIG_PIN) && conLastChange + CON_ERROR_DELAY < millis() && !error) {
         error = true;
         status = 0;
         digitalWrite(SIG_PIN, true);
         pinMode(SIG_PIN, OUTPUT);
     }
+    calibrate();
 }
 
 void resetError() {
@@ -30,7 +31,7 @@ void resetError() {
 }
 
 void calibrate() {
-    if (delayEnd < millis()) {
+    if (delayEnd <= millis()) {
         switch (status) {
         case 0:
             if (!error && digitalRead(SIG_PIN)) break;
